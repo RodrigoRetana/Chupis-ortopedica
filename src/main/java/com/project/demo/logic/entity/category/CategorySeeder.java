@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Order(2)
+@Order(1)
 @Component
 public class CategorySeeder implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
@@ -32,15 +32,15 @@ public class CategorySeeder implements ApplicationListener<ContextRefreshedEvent
 
         categories.forEach((name, description) -> {
             categoryRepository.findByNameIgnoreCase(name).ifPresentOrElse(
-                existing -> {
-                    // ya existe, no se sobreescribe
-                },
-                () -> {
-                    Category category = new Category();
-                    category.setName(name);
-                    category.setDescription(String.valueOf(description));
-                    categoryRepository.save(category);
-                }
+                    existing -> {
+                        // ya existe, no se sobreescribe
+                    },
+                    () -> {
+                        Category category = new Category();
+                        category.setName(name);
+                        category.setDescription(String.valueOf(description));
+                        categoryRepository.save(category);
+                    }
             );
         });
     }
