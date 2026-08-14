@@ -24,7 +24,6 @@
 hs_err_pid*
 replay_pid*
 .DS_Store
-src/main/resources/application.properties
 .graddle/
 .idea/
 build/tmp/
