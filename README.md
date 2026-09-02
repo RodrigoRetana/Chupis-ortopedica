@@ -1,2 +1,1 @@
-# java-spring
-Proyecto spring base para cursos de proyecto
+# Back-end application for Chupis Ortopédica
